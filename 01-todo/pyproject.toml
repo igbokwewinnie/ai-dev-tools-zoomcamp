@@ -1,0 +1,8 @@
+[project]
+name = "django-todo"
+version = "0.1.0"
+description = "A simple Django TODO application"
+requires-python = ">=3.10"
+dependencies = [
+    "django>=5.0",
+]

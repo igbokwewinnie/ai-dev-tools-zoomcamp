@@ -1,0 +1,31 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<h1>{{ action }} TODO</h1>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="text-danger">{{ form.title.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+        {{ form.description }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.due_date.id_for_label }}" class="form-label">Due Date</label>
+        {{ form.due_date }}
+    </div>
+    <div class="mb-3 form-check">
+        {{ form.resolved }}
+        <label class="form-check-label" for="{{ form.resolved.id_for_label }}">
+            Mark as resolved
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'todo_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

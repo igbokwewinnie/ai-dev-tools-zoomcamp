@@ -1,0 +1,42 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My TODOs</h1>
+    <a href="{% url 'todo_create' %}" class="btn btn-primary">+ New TODO</a>
+</div>
+
+{% if todos %}
+    <div class="row">
+        {% for todo in todos %}
+            <div class="col-md-6 mb-3">
+                <div class="card {% if todo.resolved %}todo-resolved{% endif %} {% if todo.due_date and not todo.resolved %}todo-overdue{% endif %}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">{{ todo.title }}</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" {% if todo.resolved %}checked{% endif %} 
+                                       onchange="window.location.href='{% url 'todo_toggle_resolved' todo.pk %}'">
+                            </div>
+                        </div>
+                        {% if todo.description %}
+                            <p class="card-text">{{ todo.description }}</p>
+                        {% endif %}
+                        {% if todo.due_date %}
+                            <p class="card-text"><small class="text-muted">Due: {{ todo.due_date|date:"F d, Y" }}</small></p>
+                        {% endif %}
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'todo_edit' todo.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        No TODOs yet. <a href="{% url 'todo_create' %}">Create your first one!</a>
+    </div>
+{% endif %}
+{% endblock %}
