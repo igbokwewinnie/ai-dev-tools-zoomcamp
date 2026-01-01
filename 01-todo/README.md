@@ -12,8 +12,7 @@ A simple, functional TODO application built with Django as part of the AI Dev To
 ✅ **Responsive UI** - Clean Bootstrap interface that works on all devices  
 
 ## Screenshots
-
-![TODO List View](screenshots/todo-list.png)
+<img width="1920" height="1020" alt="Screenshot 2026-01-01 035607" src="https://github.com/user-attachments/assets/156a581d-6fc3-476c-8afd-cadde50ce9fb" />
 *Main TODO list interface*
 
 ## Technologies Used
