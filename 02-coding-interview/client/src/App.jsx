@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/home';
-import CodeSession from './components/codesession';
+import Home from './components/Home';
+import CodeSession from './components/CodeSession';
 
 function App() {
   return (

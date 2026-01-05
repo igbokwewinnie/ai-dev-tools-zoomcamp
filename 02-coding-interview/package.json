@@ -1,0 +1,17 @@
+{
+  "name": "02-coding-interview",
+  "version": "1.0.0",
+  "description": "Collaborative coding interview platform",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "test": "cd server && npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
